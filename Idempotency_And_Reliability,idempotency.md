@@ -146,13 +146,14 @@ Use:
 
 ### 🧩 Event Schema Example
 
-``json
+json
 {
   "event_id": "12345",
   "version": 1,
   "type": "ORDER_CREATED",
   "timestamp": "2026-01-01T10:00:00Z"
 } 
+
 🧠 Deduplication Strategy
 Store event_id in DB
 Ignore if already processed
