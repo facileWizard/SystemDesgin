@@ -168,6 +168,7 @@ Prevent table from growing infinitely
 Example:
 Payments → long TTL
 Requests → short TTL
+
 🔥 Common Pitfalls
 ❌ No Idempotency Key
 Leads to duplicate data
@@ -177,34 +178,42 @@ Must be deterministic
 Cannot return same result
 ❌ Ignoring Failed State
 Retries may behave incorrectly
+
 ⚖️ Trade-offs
 Approach	Pros	Cons
 DB-based	Reliable	Slower
 Cache-based	Fast	Risk of data loss
 Hybrid	Balanced	Complex
+
 🧠 Real-World Example
+
 🛒 Order Creation
 User clicks "Place Order"
 API receives request with key: order_user123_cart456
 System processes order
 Stores response
+
 🔁 Retry Scenario
 User retries request
 System detects key exists
 Returns same order ID
 No duplicate order created
+
 🧠 SAP-Specific Considerations
 🔹 BAPI Calls
 Wrap BAPI with idempotency layer
 Prevent duplicate transactions
 🔹 bgRFC / Async Processing
+
 Use idempotency for:
 Background jobs
 Retry queues
+
 🌍 Multi-Region Considerations
 Ensure global uniqueness of keys
 Use:
 UUID
+
 Region prefix (optional)
 🔥 Golden Rules
 Idempotency is mandatory for all write operations
@@ -212,9 +221,11 @@ Always store:
 Key
 Response
 Design for retries from day one
+
 🚫 When NOT Needed
 Read-only APIs
 Internal computations
+
 📌 Summary
 Distributed systems are unreliable by nature
 Retries are inevitable
