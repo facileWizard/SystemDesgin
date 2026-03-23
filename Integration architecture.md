@@ -110,7 +110,6 @@ No need for async processing
 📌 Real-World Example
 
 Order Created in SAP:
-
-API call creates order (sync)
-Event published to Kafka
-CRM, Analytics consume independently
+1. API call creates order (sync)
+2. Event published to Kafka
+3. CRM, Analytics consume independently
