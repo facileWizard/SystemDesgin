@@ -67,68 +67,74 @@ Design a scalable system where:
 🌍 Multi-Region:
 - Regional APIs
 - Event replication
+
 🧠 System Layers
 1. User Layer
-CDN → fast static delivery
-Frontend → user interaction
+- CDN → fast static delivery
+- Frontend → user interaction
 2. API Layer
-API Gateway:
-Authentication
-Routing
+- API Gateway:
+- Authentication
+- Routing
 Backend:
-Business logic
-Aggregation
+- Business logic
+- Aggregation
 3. Performance Layer
-Cache (Redis)
-Reduce ERP calls
-Improve latency
-Search (Elastic)
-Fuzzy search
-Fast querying
+- Cache (Redis)
+- Reduce ERP calls
+- Improve latency
+- Search (Elastic)
+- Fuzzy search
+- Fast querying
 4. Reliability Layer
-Idempotency
-Prevent duplicate operations
+- Idempotency
+- Prevent duplicate operations
 Key structure:
-idempotency_key
-status
-response
+- idempotency_key
+- status
+- response
 5. Integration Layer
-Kafka / Event Bus
-Async communication
-Decoupling
-ERP Systems
-SAP S/4HANA
+- Kafka / Event Bus
+- Async communication
+- Decoupling
+- ERP Systems
+- SAP S/4HANA
 Oracle / MSFT
+
 🌍 Multi-Region Strategy
-Deploy APIs regionally
-Replicate events globally
+- Deploy APIs regionally
+- Replicate events globally
 Use:
-event_id
-version
+- event_id
+- version
+
 ⚖️ Key Design Decisions
 Why Not Direct ERP Calls?
-ERP is slow
-Not scalable
-Tight coupling
+- ERP is slow
+- Not scalable
+- Tight coupling
 Why Event-Driven?
-Loose coupling
-Scalable
-Retry support
+- Loose coupling
+- Scalable
+- Retry support
 Why Idempotency?
-Prevent duplicate orders
-Critical in distributed systems
+- Prevent duplicate orders
+- Critical in distributed systems
+
 🔥 Golden Rules
-Never expose ERP directly to frontend
+- Never expose ERP directly to frontend
 Always introduce:
-API layer
-Cache
-Event bus
+- API layer
+- Cache
+- Event bus
 Separate:
-Read vs Write paths
+- Read vs Write paths
+
 🚫 When NOT to Use This Design
-Small applications
-Low traffic systems
-Single-region systems
+- Small applications
+- Low traffic systems
+- Single-region systems
+
 📌 Real-World Example
 
 User creates order:
