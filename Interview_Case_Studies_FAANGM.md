@@ -1,28 +1,57 @@
-# 🚀 Interview Case Studies – FAANGM (System Design + Integration)
+# 🚀 Interview Case Studies – FAANGM (Real Onsite Experiences)
 
 ## 📌 Purpose
 
-This repository documents real interview-style system design and integration problems with clear explanations, trade-offs, and production-ready thinking.
+This repository documents **real interview experiences** (system design + integration) with practical decisions, trade-offs, and reasoning.
 
-It is intended to:
+Focus:
 
-* Help candidates prepare for FAANGM-level interviews
-* Provide structured approaches to complex problems
-* Demonstrate real-world distributed system thinking
+* What I actually designed in interview
+* Why I made those choices
+* What I would improve later
 
 ---
 
-# 🧠 Case Study 1: ERP → Application Sync + Search System
+# 🧠 Case Study 1: ERP → Application System with Search
 
 ## 🏗️ Problem Statement
 
 Design a system where:
 
-* ERP is the source of truth (products, pricing, inventory)
-* Application has its own database for serving users
-* Updates must reflect in search within **2 seconds**
-* No duplicate processing
-* Support analytics + notifications
+* ERP is the **source of truth** (products, pricing, inventory)
+* Application layer serves users
+* Fast search required
+* Handle high request load
+
+---
+
+## 🎯 Key Design Decision (Important)
+
+👉 Instead of creating a separate search system:
+
+**I chose to search directly from ERP database**
+
+### Why?
+
+* Avoid data duplication
+* Keep application layer lightweight
+* ERP already contains required data
+
+---
+
+## 🗄️ ERP Data Model (Search Table)
+
+Custom search table created in ERP DB:
+
+| Field         | Description     |
+| ------------- | --------------- |
+| material_id   | Primary Key     |
+| material_name | Used for search |
+
+Search logic:
+
+* Pattern-based search (`LIKE '%term%'`)
+* Optimized indexing
 
 ---
 
@@ -30,247 +59,228 @@ Design a system where:
 
 ### Flow:
 
-1. ERP emits events (create/update)
-2. API Gateway / Ingress validates request
-3. Kafka buffers and streams events
-4. Consumers:
-
-   * Application DB updater
-   * Search index updater
-   * Analytics pipeline
-   * Notification service
+Application → API Layer → Load Balancer → ERP → Response
 
 ---
 
 ## ⚙️ Components
 
-### 1. Event Producer (ERP)
+### 1. Application Layer
 
-* Emits events with:
+Handles:
 
-  * event_id
-  * timestamp/version
-  * payload
+* User authentication
+* Order history
+* Subscription system
 
-### 2. API Gateway / Ingress
+---
+
+### 2. Application DB Schema
+
+#### Users Table
+
+| user_id | password | details |
+
+#### Orders Table
+
+| order_id | user_id (FK) | product_id |
+
+#### Subscription Table
+
+| subscription_id | user_id (FK) | product_id | quantity |
+
+---
+
+### 3. ERP Layer
+
+* SAP / Oracle systems
+* REST APIs exposed
+* Handles:
+
+  * product data
+  * inventory
+  * pricing
+
+---
+
+### 4. API Layer + Load Balancer
 
 * Authentication
 * Rate limiting
-* Correlation ID
-
-### 3. Kafka (Core Backbone)
-
-* Partitioning by product_id
-* Guarantees ordering per key
-* DLQ for failures
-
-### 4. Application Service
-
-* Consumes events
-* Validates
-* Performs idempotency check
-
-### 5. Idempotency Table
-
-| event_id | status | timestamp |
-| -------- | ------ | --------- |
-
-Prevents duplicate updates
+* Load distribution
 
 ---
 
-## 🔄 Data Flow (Detailed)
+## 🔄 Handling Scale
 
-ERP → Ingress → Kafka → Consumer →
+For high traffic:
 
-1. Check idempotency
-2. Validate timestamp/version
-3. Update DB
-4. Emit success/failure
+* Introduced **Load Balancer**
+* Introduced **Kafka (for async flows)**
 
----
+### Use cases for Kafka:
 
-## 🔍 Search Optimization
-
-### ❌ Wrong Approach
-
-Search directly from ERP
-
-* High latency
-* Tight coupling
-
-### ✅ Correct Approach
-
-* Maintain **Search Index (ElasticSearch)**
-* Consume directly from Kafka
-
-Benefits:
-
-* Near real-time (<2s)
-* No DB dependency
-
----
-
-## ⚠️ Key Problems + Solutions
-
-### 1. Duplicate Events
-
-Solution:
-
-* Idempotency table
-* Event ID tracking
-
----
-
-### 2. Out-of-Order Events
-
-Solution:
-
-* Version/timestamp check
-
-```
-if incoming_version < stored_version:
-    ignore
-```
-
----
-
-### 3. Failure Handling
-
-* Kafka retries
-* DLQ
-* Replay capability
-
----
-
-### 4. Scalability
-
-* Kafka partitions
-* Horizontal consumers
-
----
-
-## 📊 Trade-offs
-
-| Decision     | Pros        | Cons                 |
-| ------------ | ----------- | -------------------- |
-| Kafka        | scalability | complexity           |
-| App DB copy  | fast reads  | data duplication     |
-| Search index | fast search | eventual consistency |
-
----
-
-# 🧠 Case Study 2: Order Processing (Saga Pattern)
-
-## 🏗️ Problem
-
-When user places order:
-
-* Payment
-* Fraud
-* Inventory
-* Order confirmation
-
-Constraints:
-
-* <3 sec latency
-* No double inventory
-* Exactly-once order
-
----
-
-## 🧩 Architecture
-
-### Pattern: Orchestration-based Saga
-
-Order Service = Orchestrator
-
----
-
-## 🔄 Flow
-
-1. Create Order (INIT)
-2. Call Payment Service
-3. Call Fraud Service
-4. Reserve Inventory
-5. Confirm Order
+* Bulk updates
+* Retry mechanisms
+* Decoupling application and ERP
 
 ---
 
 ## ⚠️ Failure Handling
 
-| Step           | Failure Action  |
-| -------------- | --------------- |
-| Payment fail   | cancel order    |
-| Fraud fail     | cancel + refund |
-| Inventory fail | release payment |
+* DLQ (Dead Letter Queue)
+* Retry mechanism
+* Idempotency checks
 
 ---
 
-## 🔐 Idempotency
+## 🔁 Multi-ERP Scenario
 
-Each service:
+* SAP + Oracle
+* Same logical architecture
+* Different implementation layers:
 
-* Uses request_id
-* Prevents duplicate execution
-
----
-
-## ⏱️ Timeout Handling
-
-Fraud service slow (2s):
-
-* async processing
-* fallback decision
+  * SAP → API-based
+  * Oracle → REST-based
 
 ---
 
-## 📊 Guarantees
+## 📊 Trade-offs
 
-* At least once delivery
-* Exactly-once via idempotency
+| Decision              | Pros           | Cons                |
+| --------------------- | -------------- | ------------------- |
+| Search from ERP       | No duplication | Higher latency risk |
+| No separate search DB | Simpler        | Scaling challenges  |
+| Kafka usage           | Reliable       | Added complexity    |
 
 ---
 
-# 🧠 Interview Learnings
+# 🧠 Case Study 2: Integration – In-house Systems ↔ Third-party ERP
 
-## ✅ What Worked
+## 🏗️ Problem Statement
 
-* Structured thinking
-* Tradeoff discussion
-* Event-driven design
+* Multiple internal systems (Google in-house)
+* One third-party ERP system
+* Need:
 
-## ❌ What to Improve
+  * Data sync
+  * Analytics
+  * Reliability
+  * No duplicate processing
 
-* Faster pattern recognition
+---
+
+## 📐 Architecture Overview
+
+### Two flows:
+
+### 1️⃣ Inbound Flow
+
+In-house systems → Integration Layer → Third-party ERP
+
+### 2️⃣ Outbound Flow
+
+Third-party ERP → Integration Layer → In-house systems
+
+---
+
+## ⚙️ Components
+
+### 1. API / Ingress Layer
+
+* Authentication
+* Load handling
+* Correlation ID
+
+---
+
+### 2. Kafka
+
+Used for:
+
+* Buffering
+* Retry handling
+* Decoupling
+* Spike absorption
+
+---
+
+### 3. Processing Layer
+
+* Validation
+* Transformation
+* Business logic
+
+---
+
+## 🔄 Async Processing Strategy
+
+### Problem:
+
+Some systems take longer to process
+
+### Solution:
+
+* Immediate ACK to caller
+* Process asynchronously
+* Emit response event later
+
+---
+
+## 🔐 Idempotency Design
+
+To prevent duplicates:
+
+* event_id
+* version
+
+Check:
+
+```
+if event already processed:
+    ignore
+```
+
+---
+
+## 📊 Analytics Flow
+
+* Events also sent to analytics system
+* Ensures tracking and auditing
+
+---
+
+## ⚠️ Failure Handling
+
+* Retry via Kafka
+* DLQ for failed events
+* Replay mechanism
+
+---
+
+## 📊 Trade-offs
+
+| Decision         | Pros        | Cons                 |
+| ---------------- | ----------- | -------------------- |
+| Async processing | scalable    | complexity           |
+| Kafka            | reliability | operational overhead |
+| Idempotency      | correctness | extra storage        |
+
+---
+
+# 🧠 Key Interview Learnings
+
+## ✅ What Went Well
+
+* Structured explanation
+* Trade-offs discussion
+* Real-world thinking
+
+## ❌ Improvements
+
+* Faster pattern recognition (DSA)
 * Cleaner communication under pressure
 
 ---
 
-# 🧠 Template for Any System Design
-
-1. Clarify requirements
-2. Define entities
-3. High-level architecture
-4. Data flow
-5. Scale
-6. Failure handling
-7. Trade-offs
-
----
-
-# 🎯 Final Thoughts
-
-System design interviews are not about perfection.
-They test:
-
-* clarity
-* reasoning
-* trade-offs
-
-Focus on thinking, not memorization.
-
----
-
 **Author:** Aditya
-
