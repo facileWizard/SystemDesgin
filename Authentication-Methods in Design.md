@@ -18,6 +18,16 @@ If Fiori is unavailable, follow this manual configuration path in the classic AB
 | **A** | `SU01` | Technical User | Create a `System` type user. |
 | **B** | `SOAUTH2` | Client Mapping | Map OAuth Client ID to user. |
 
+####
+
+🧠 Doubts Cleared (Interview Perspective)
+
+#### Q: Is the Fiori setup only for SAP Cloud (BTP)?
+#### A: No. Modern On-Premise S/4HANA systems also use Fiori apps like "Communication Arrangements" for a simplified setup, but SOAUTH2 remains the underlying engine.
+
+#### Q: Does the RAP (ABAP RESTful Application Programming) layer handle the OAuth validation?
+#### A: No. The SAP Kernel handles the OAuth handshake and security validation before the request ever reaches the RAP handler. If the token is invalid, the RAP code is never executed.
+
 ---
 
 ### 4. Integration Flow
