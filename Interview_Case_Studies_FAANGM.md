@@ -283,4 +283,104 @@ if event already processed:
 
 ---
 
+🧠 Case 1: ERP Search Architecture 
+
+
+<img width="2069" height="1318" alt="erp" src="https://github.com/user-attachments/assets/c724c955-0565-4c9a-a6dc-b0e7274109a2" />
+
+
+
+
+
+
+
+🧠 Case 2: Integration Architecture (Inbound + Outbound)
+
+
+<img width="3817" height="489" alt="2erp" src="https://github.com/user-attachments/assets/1757aef6-f7c7-4f19-a109-1038a4b43a6f" />
+
+
+
+
+
+
+
+
+⚡ Async Processing Pattern 
+
+
+<img width="2100" height="870" alt="3erp" src="https://github.com/user-attachments/assets/469615af-6e74-46d6-a9cb-eb23e8b4222b" />
+
+
+
+
+
+
+
+🧠 Idempotency Logic 
+
+
+<img width="826" height="1043" alt="4erp" src="https://github.com/user-attachments/assets/0158f7e0-4087-4d45-8f6e-91c7eabde1f4" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## 🧠 What Interviewer Expected
+
+- Why not separate search system?
+- How do you handle scaling?
+- What about latency?
+  
+## 🔁 Improvements (Post Interview)
+
+- Could use search index instead of ERP direct search
+- Better handling of pattern search scalability
+- Introduce caching layer
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 **Author:** Aditya
