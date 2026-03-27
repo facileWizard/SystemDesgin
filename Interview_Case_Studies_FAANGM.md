@@ -358,6 +358,10 @@ if event already processed:
 - Why not separate search system?
 - How do you handle scaling?
 - What about latency?
+- Coupling between the systems.
+- Schema for the Application layer tables, relationships between the table how they are interconnected.
+- The immediate ack was a follow up question -> What if one of the in-house solutions take hours to process the incoming data and respond back?
+- Questions are very vague, you are expected to ask everything from top to bottom, they will dig deep if it is interesting or check flaws in the design and ask to answer that or improve that.
   
 ## 🔁 Improvements (Post Interview)
 
