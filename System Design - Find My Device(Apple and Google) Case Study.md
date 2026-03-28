@@ -661,3 +661,9 @@ graph LR
 ---
 
 *This design can be extended with AirDrop, AirPods switching, and Universal Control — see [Extensions](#20-extensions).*
+
+---
+## 👤 Author
+
+**Aditya**  
+🔗 https://github.com/facileWizard
