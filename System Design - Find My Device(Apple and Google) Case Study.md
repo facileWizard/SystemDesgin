@@ -665,5 +665,5 @@ graph LR
 ---
 ## 👤 Author
 
-**Aditya**  
+**Aditya Kumar Singh**  
 🔗 https://github.com/facileWizard
