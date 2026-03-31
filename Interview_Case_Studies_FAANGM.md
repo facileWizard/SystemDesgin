@@ -79,15 +79,15 @@ Handles:
 
 #### Users Table
 
-| user_id | password | details |
+| user_id | password | details | order_id(FK) | subscription_id(FK) | payment_methods | saved_address | 
 
 #### Orders Table
 
-| order_id | user_id (FK) | product_id |
+| order_id | user_id (FK) | product_id | qty | unit_price | total_price | order_total | discount% |
 
 #### Subscription Table
 
-| subscription_id | user_id (FK) | product_id | quantity |
+| subscription_id | user_id (FK) | product_id | quantity | trigger_date | order_date | payment_method | order_total |
 
 ---
 
@@ -140,7 +140,7 @@ For high traffic:
 * Same logical architecture
 * Different implementation layers:
 
-  * SAP → API-based
+  * SAP → RAP-based
   * Oracle → REST-based
 
 ---
