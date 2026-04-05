@@ -93,7 +93,7 @@ Handles:
 
 ### 3. ERP Layer
 
-* SAP / Oracle systems
+* SAP / Oracle/ Workday/ MSFT erp systems
 * REST APIs exposed
 * Handles:
 
