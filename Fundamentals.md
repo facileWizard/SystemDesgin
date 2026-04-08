@@ -56,4 +56,4 @@ Understand how to design scalable, reliable systems when working with:
 
 - Never expose ERP directly
 - Always introduce abstraction layers
-- Prefer async for scale
+- Prefer async for scale 
