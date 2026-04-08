@@ -1,4 +1,4 @@
-# 🏗️ ERP System Design (Frontend + Backend + Multi-Region)
+# 🏗️ ERP System Design (Frontend + Backend + Multi-Region) 
 
 ## 🧠 Problem
 
