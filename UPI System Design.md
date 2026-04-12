@@ -1,4 +1,4 @@
-# 💳 UPI System Design (End-to-End, Real-Time Payments) — Production Grade
+# 💳 UPI System Design (End-to-End, Real-Time Payments) 
 
 > **Author:** Aditya
 
