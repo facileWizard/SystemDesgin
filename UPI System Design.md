@@ -1,7 +1,8 @@
 # 💳 UPI System Design (End-to-End, Real-Time Payments) 
 
-> **Author:** Aditya
-
+> **Author:** Aditya Kumar Singh
+> 
+> **GitHub:** [facileWizard](https://github.com/facileWizard)
 ---
 
 ## 0. 📌 Assumptions
