@@ -1,6 +1,9 @@
 # 🎬 Netflix System Design (End-to-End)
 
-> **Author:** Aditya
+> **Author:** Aditya Kumar Singh
+> 
+> **GitHub:** [facileWizard](https://github.com/facileWizard)
+
 
 ---
 
