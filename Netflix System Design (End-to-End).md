@@ -21,6 +21,22 @@
 
 ---
 
+## 0.5 Requirements
+
+### Functional
+- Stream video content
+- Sync playback across devices
+- Provide personalized recommendations
+- Search and browse content
+
+### Non-Functional
+- Low startup latency (<2s)
+- High availability (99.99%)
+- Global scalability (millions of users)
+- High throughput (CDN-heavy traffic)
+
+---
+
 ## 🧭 Design Phases
 
 This document is structured in phases for clarity and incremental depth:
@@ -52,11 +68,22 @@ graph LR
     CDN --> User
 ```
 
+## End-to-End Flow (Simplified)
+
+1. User opens app → request goes to API Gateway  
+2. Backend services fetch metadata, auth, recommendations  
+3. Playback Service returns signed CDN URL + DRM token  
+4. Client streams video chunks directly from CDN  
+5. Client sends playback events → Sync Service → stored + propagated
+   
+
 > **Note:** Video upload/ingest is a completely separate pipeline from playback. The backend services handle metadata and state; CDN serves the actual video bytes directly to the client — the backend does **not** proxy video traffic.
 
 ---
 
 # ⚙️ Phase 2 — Core Services
+
+Netflix uses microservices to enable independent scaling, fault isolation, and faster deployments.
 
 * **API Gateway** — Single entry point, rate limiting, routing
 * **Auth / Identity Service** — Login, OAuth, session tokens
@@ -728,6 +755,18 @@ Video streaming is bandwidth-heavy → push data closer to user (CDN)
 ```text
 Netflix optimizes for availability and latency over strict consistency
 ```
+
+---
+
+## Tradeoffs
+
+| Decision | Tradeoff |
+|--------|--------|
+CDN (Open Connect) | Higher infra cost vs ultra-low latency |
+Microservices | Operational complexity vs scalability & isolation |
+Caching (Redis/CDN) | Stale data vs performance |
+Eventual consistency (sync/recs) | Slight inconsistency vs low latency |
+Precompute recommendations | Storage + compute vs fast response time |
 
 ---
 
