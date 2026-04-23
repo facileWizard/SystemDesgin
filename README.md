@@ -8,4 +8,5 @@ Another interesting case studies for system design:
 2. Whatsapp Multi-Device sync.
 3. UPI payments.
 4. Netflix along with its features, ( Indexing fixed on 20.04.2026 ).
+5. Mygate notification trigger.
    
