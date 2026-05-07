@@ -43,6 +43,16 @@ Design a UPI-like system that:
 
 ## 2. 🏗️ High-Level Architecture (HLD)
 
+## 🔁 Critical Payment Path
+
+1. Resolve VPA → account mapping
+2. PSP validates + forwards request
+3. NPCI coordinates debit and credit
+4. Sender bank debits funds
+5. Receiver bank credits funds
+6. PSP notifies user
+7. Async systems handle reconciliation, retries, notifications
+
 ```mermaid
 graph LR
     U[User App] --> PSP[PSP Backend]
