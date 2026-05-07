@@ -1,6 +1,8 @@
 # 💳 UPI System Design (End-to-End, Real-Time Payments) 
 
-> **Author:** Aditya
+> **Author:** Aditya Kumar Singh
+> 
+> **GitHub:** [facileWizard](https://github.com/facileWizard)
 
 ---
 
@@ -11,6 +13,20 @@
 - Strong consistency required for all money movement
 - Multi-PSP ecosystem: GPay, PhonePe, Paytm
 - UPI handles ~10,000–15,000 TPS at peak (not millions)
+
+## 0.5 🎯 Requirements
+
+### Functional
+- Instant bank-to-bank transfer
+- Push and Collect payment flows
+- Prevent double debit
+- Support retries and reversals
+
+### Non-Functional
+- Strong consistency
+- High availability
+- <2s UX latency
+- Fault tolerance and reconciliation
 
 ---
 
