@@ -13,6 +13,20 @@
 - Multi-PSP ecosystem: GPay, PhonePe, Paytm
 - UPI handles ~10,000–15,000 TPS at peak (not millions)
 
+## 0.5 🎯 Requirements
+
+### Functional
+- Instant bank-to-bank transfer
+- Push and Collect payment flows
+- Prevent double debit
+- Support retries and reversals
+
+### Non-Functional
+- Strong consistency
+- High availability
+- <2s UX latency
+- Fault tolerance and reconciliation
+
 ---
 
 ## 1. 🧠 Problem Statement
@@ -27,6 +41,16 @@ Design a UPI-like system that:
 ---
 
 ## 2. 🏗️ High-Level Architecture (HLD)
+
+## 🔁 Critical Payment Path
+
+1. Resolve VPA → account mapping
+2. PSP validates + forwards request
+3. NPCI coordinates debit and credit
+4. Sender bank debits funds
+5. Receiver bank credits funds
+6. PSP notifies user
+7. Async systems handle reconciliation, retries, notifications
 
 ```mermaid
 graph LR

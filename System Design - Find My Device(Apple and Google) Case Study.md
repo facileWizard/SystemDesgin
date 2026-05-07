@@ -1,6 +1,9 @@
 # Find My Network — Complete System Design (Apple & Google)
+#### A crowdsourced, privacy-preserving distributed system that locates lost devices even when they are offline.
 
-> A crowdsourced, privacy-preserving distributed system that locates lost devices even when they are offline.
+> **Author:** Aditya Kumar Singh
+> 
+> **GitHub:** [facileWizard](https://github.com/facileWizard)
 
 ---
 
@@ -62,6 +65,16 @@ The **Find My** network leverages four core primitives:
 ---
 
 ## 3. High-Level Architecture
+
+### Quick End-to-End Flow
+
+1. Lost device broadcasts rotating BLE beacon
+2. Nearby relay detects signal
+3. Relay attaches GPS + timestamp
+4. Relay encrypts payload using rotating public key
+5. Encrypted payload uploaded to cloud
+6. Owner fetches encrypted payloads
+7. Owner decrypts locally using derived private keys
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
@@ -663,7 +676,3 @@ graph LR
 *This design can be extended with AirDrop, AirPods switching, and Universal Control — see [Extensions](#20-extensions).*
 
 ---
-## 👤 Author
-
-**Aditya Kumar Singh**  
-🔗 https://github.com/facileWizard
