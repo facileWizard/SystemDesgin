@@ -12,9 +12,35 @@ Design a system like WhatsApp that:
 * Syncs messages reliably across devices
 * Handles offline devices and eventual consistency
 
+## 1.5 🎯 Requirements
+
+### Functional
+- Send messages across multiple devices
+- Maintain E2E encryption
+- Sync offline devices
+- Support device linking/unlinking
+
+### Non-Functional
+- Low latency delivery (<1s)
+- High availability
+- Eventual consistency across devices
+- Strong privacy guarantees
+
 ---
 
 # 2. 🏗️ High-Level Architecture (HLD)
+
+
+
+## 🔁 End-to-End Flow (Simplified)
+1. Sender fetches recipient device public keys
+2. Sender encrypts one payload per device locally
+3. Encrypted payloads uploaded to Messaging Service
+4. Messaging Service publishes event to queue
+5. Fanout workers deliver encrypted blobs to recipient devices
+6. Devices decrypt locally and update sync cursor
+
+
 
 ```mermaid
 graph LR
