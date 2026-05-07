@@ -3,7 +3,6 @@
 > **Author:** Aditya Kumar Singh
 > 
 > **GitHub:** [facileWizard](https://github.com/facileWizard)
-
 ---
 
 ## 0. 📌 Assumptions
