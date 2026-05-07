@@ -1,5 +1,9 @@
 # 📲 WhatsApp Multi-Device System Design (E2E + Sync)
 
+> **Author:** Aditya Kumar Singh
+> 
+> **GitHub:** [facileWizard](https://github.com/facileWizard)
+
 ---
 
 # 1. 🧠 Problem Statement
@@ -377,6 +381,3 @@ If a message never reaches the server, it does not exist globally. The server is
 
 ---
 
-## 👤 Author
-
-Aditya
