@@ -1,5 +1,11 @@
 # 🔄 Cross ERP Integration (SAP, Oracle, MSFT)
 
+> **Author:** Aditya Kumar Singh
+> 
+> **GitHub:** [facileWizard](https://github.com/facileWizard)
+>
+-------
+
 ## 🧠 Problem
 
 Different ERPs use different schemas and protocols.
