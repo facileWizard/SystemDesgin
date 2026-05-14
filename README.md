@@ -3,8 +3,7 @@
 > **Author:** Aditya Kumar Singh
 > 
 > **GitHub:** [facileWizard](https://github.com/facileWizard)
->
--------
+--------
 
 This has System Design Questions and general questions for System Integration too related to ERP landscape.
 
