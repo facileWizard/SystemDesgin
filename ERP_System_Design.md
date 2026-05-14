@@ -1,4 +1,9 @@
 # 🏗️ ERP System Design (Frontend + Backend + Multi-Region) 
+> **Author:** Aditya Kumar Singh
+> 
+> **GitHub:** [facileWizard](https://github.com/facileWizard)
+>
+-------
 
 ## 🧠 Problem
 
