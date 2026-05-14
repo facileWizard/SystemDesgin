@@ -1,5 +1,11 @@
 # SystemDesgin
 
+> **Author:** Aditya Kumar Singh
+> 
+> **GitHub:** [facileWizard](https://github.com/facileWizard)
+>
+-------
+
 This has System Design Questions and general questions for System Integration too related to ERP landscape.
 
 Checkout the Interview Case for FAANGM for my google experience that got me HC approved.
