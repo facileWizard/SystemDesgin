@@ -1,5 +1,11 @@
 # ⚖️ BAPI vs RAP
 
+> **Author:** Aditya Kumar Singh
+> 
+> **GitHub:** [facileWizard](https://github.com/facileWizard)
+>
+-------
+
 ## 🧠 Problem
 
 Choosing the right SAP integration layer.
