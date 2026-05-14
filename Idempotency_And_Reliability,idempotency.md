@@ -1,5 +1,11 @@
 # 🔁 Idempotency & Reliability in Distributed Systems
 
+> **Author:** Aditya Kumar Singh
+> 
+> **GitHub:** [facileWizard](https://github.com/facileWizard)
+>
+-------
+
 ## 🧠 Problem
 
 In distributed systems, the same request or event can be processed multiple times due to:
