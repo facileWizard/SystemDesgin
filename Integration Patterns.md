@@ -1,5 +1,11 @@
 # 🔗 Integration Patterns (Single vs Multiple Systems)
 
+> **Author:** Aditya Kumar Singh
+> 
+> **GitHub:** [facileWizard](https://github.com/facileWizard)
+>
+-------
+
 ## 🧠 Problem
 
 How to design integration between ERP and external systems.

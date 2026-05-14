@@ -1,6 +1,9 @@
-#Integration Architecture
-
 # 🔗 Integration Architecture (SAP + External Systems + Event Bus)
+> **Author:** Aditya Kumar Singh
+> 
+> **GitHub:** [facileWizard](https://github.com/facileWizard)
+>
+-------
 
 ## 🧠 Problem
 

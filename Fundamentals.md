@@ -1,5 +1,11 @@
 # 🧠 System Design Fundamentals (Enterprise + ERP Context)
 
+> **Author:** Aditya Kumar Singh
+> 
+> **GitHub:** [facileWizard](https://github.com/facileWizard)
+>
+-------
+
 ## 🎯 Goal
 
 Understand how to design scalable, reliable systems when working with:

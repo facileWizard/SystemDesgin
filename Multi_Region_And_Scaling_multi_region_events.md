@@ -1,5 +1,11 @@
 # 🌍 Multi-Region Event Architecture
 
+> **Author:** Aditya Kumar Singh
+> 
+> **GitHub:** [facileWizard](https://github.com/facileWizard)
+>
+-------
+
 ## 🧠 Problem
 
 Global systems need to process events across regions.

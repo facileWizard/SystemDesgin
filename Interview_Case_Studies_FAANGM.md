@@ -2,6 +2,12 @@
 > Since due to the confidentiality of interviews I cannot tell the exact questions, but the following are similar to what I was asked and what you can expect.
 # 🚀 Interview Case Studies – FAANGM (Real Onsite Experiences)
 
+> **Author:** Aditya Kumar Singh
+> 
+> **GitHub:** [facileWizard](https://github.com/facileWizard)
+>
+-------
+
 ## 📌 Purpose
 
 This repository documents **real interview experiences** (system design + integration) with practical decisions, trade-offs, and reasoning.

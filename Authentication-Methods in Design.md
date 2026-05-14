@@ -1,4 +1,9 @@
 # 🔐 Authentication Methods in System Design
+> **Author:** Aditya Kumar Singh
+> 
+> **GitHub:** [facileWizard](https://github.com/facileWizard)
+>
+-------
 
 ## 🛠️ Configuring OAuth 2.0 via SAP GUI (On-Prem)
 If Fiori is unavailable, follow this manual configuration path in the classic ABAP stack.
