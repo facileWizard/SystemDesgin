@@ -1,5 +1,11 @@
 # 🟢 Kafka & Event-Driven Architecture
 
+> **Author:** Aditya Kumar Singh
+> 
+> **GitHub:** [facileWizard](https://github.com/facileWizard)
+>
+-------
+
 ## 🧠 Problem
 
 Avoid tight coupling between systems and enable scalability.
