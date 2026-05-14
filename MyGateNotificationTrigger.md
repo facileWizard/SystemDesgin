@@ -1,8 +1,10 @@
 # MyGate — Notification System Design
 
 > Visitor Entry + Pre-Approval Notification Architecture
->
-> **Author:** Aditya
+> 
+> **Author:** Aditya Kumar Singh
+> 
+> **GitHub:** [facileWizard](https://github.com/facileWizard)
 
 ---
 
