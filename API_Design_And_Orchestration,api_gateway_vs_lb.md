@@ -1,5 +1,11 @@
 # 🌐 API Gateway vs Load Balancer vs Ingress
 
+> **Author:** Aditya Kumar Singh
+> 
+> **GitHub:** [facileWizard](https://github.com/facileWizard)
+>
+-------
+
 ## 🧠 Problem
 
 Manage incoming traffic efficiently.
