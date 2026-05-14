@@ -1,4 +1,9 @@
 # 🏗️ Frontend + Backend + ERP Architecture
+> **Author:** Aditya Kumar Singh
+> 
+> **GitHub:** [facileWizard](https://github.com/facileWizard)
+>
+-------
 
 ## 🧠 Flow
 
