@@ -16,4 +16,6 @@ Another interesting case studies for system design:
 3. UPI payments.
 4. Netflix along with its features, ( Indexing fixed on 20.04.2026 ).
 5. Mygate notification trigger.
+6. Fitness watch sync data(apple os) - WIP.
+7. Live Streaming -(Hostar, YT) - WIP.
    
