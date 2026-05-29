@@ -1,8 +1,11 @@
 # 🍎 Apple Fitness + Apple Watch — System Design
 
 > **Health Data Collection, Synchronization & Analytics Architecture**
+> 
+> **Author:** Aditya Kumar Singh
+> 
+> **GitHub:** [facileWizard](https://github.com/facileWizard)
 >
-> Author: Aditya
 
 ---
 
