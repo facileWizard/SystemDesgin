@@ -1,9 +1,11 @@
 # 📺 Live Video Streaming Platform — System Design
 
 > **Hotstar / YouTube Live Streaming Architecture**
+> 
+> **Author:** Aditya Kumar Singh
+> 
+> **GitHub:** [facileWizard](https://github.com/facileWizard)
 >
-> Author: Aditya
-
 ---
 
 ## 0. Assumptions
